@@ -12,8 +12,19 @@
   ("g r a p h tab" (make-session "graph" "default"))
   ("C-V" (clipboard-paste-import "verbatim" "primary")) ;;; Ctrl+Shift+V
   ("A-L" (clipboard-paste-import "latex" "primary"))    ;;; Alt+Shift+L
+  ("C-C" (clipboard-copy-image '()))                    ;;; Ctrl+Shift+C
   )
-
+(kbd-map 
+  (:mode in-text?) 
+  ("M E" (insert '(document (doc-data 
+(doc-title "") 
+(doc-author 
+  (author-data 
+  ;; Your name here 
+  (author-name "PikachuHy")                                                         ;; Your institute here 
+  (author-affiliation (document "CSS518, CSU")) 
+  ;; your@email.here 
+  (author-email "pikachuhy@163.com"))))))))
        
 (define (num-join l)
   (cond ((== (car l) 0) (num-join (cdr l)))
@@ -93,5 +104,5 @@
     //
     (=> (eval (tm/section-get-title-string t))
         (link focus-section-menu))
-    ("Go to section" (top-window widget-outline "Outline"))
+    ("Outline" (top-window widget-outline "Outline"))
     ))
